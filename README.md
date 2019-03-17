@@ -1,5 +1,7 @@
 # chuck
 
+[![Build Status](https://travis-ci.com/krolmic/chuck_app.svg?token=sipsq1xf5Xdf9GKCo9cA&branch=master)](https://travis-ci.com/krolmic/chuck_app)
+
 A new Flutter project.
 
 ## Getting Started
