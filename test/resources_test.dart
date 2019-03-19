@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 
 import '../lib/resources/api_provider.dart';
 import '../lib/resources/repository.dart';
+import './mocks.dart';
 
-class ClientMock extends Mock implements http.Client {}
 
 void main() {
   group('Resources', () {
@@ -31,6 +31,7 @@ void main() {
       // Invalid response
       response = http.Response('{"foo}', 200);
       expect(await provider.fetchRandomJoke(), null);
+      // The repository returns a joke from the offline provider
       expect(await repository.fetchRandomJoke(), isNotNull);
     });
   });

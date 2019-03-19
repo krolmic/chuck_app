@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './pages/joke.dart';
+import './resources/repository.dart';
 
 class ChuckApp extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class ChuckApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: JokePage(),
+      home: JokePage(JokesRepository()),
     );
   }
 }
