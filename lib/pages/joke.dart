@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../resources/repository.dart';
 
 class JokePage extends StatefulWidget {
-  JokePage({Key key}) : super(key: key);
+  final JokesRepository jokesRepository;
+
+  JokePage(this.jokesRepository, {Key key}) : super(key: key);
 
   @override
   _JokePageState createState() => _JokePageState();
@@ -33,7 +35,7 @@ class _JokePageState extends State<JokePage> {
 
   Widget _buildContent() {
     return _isLoading
-        ? CircularProgressIndicator()
+        ? Center(child: CircularProgressIndicator())
         : Text(
             '$_joke',
             style: Theme.of(context)
@@ -55,11 +57,21 @@ class _JokePageState extends State<JokePage> {
           ),
         ),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
-          child: _buildContent(),
-        ),
+      body: ListView(
+        padding: EdgeInsets.all(15),
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: 1.8,
+            child: Image.asset('assets/chuck_norris.png'),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          _buildContent(),
+          SizedBox(
+            height: 50,
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _getJoke,
