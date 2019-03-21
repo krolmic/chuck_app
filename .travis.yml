@@ -15,6 +15,7 @@ before_script:
   - gem install coveralls-lcov
 script:
   - ./flutter/bin/flutter test --coverage
+  - ./flutter/bin/flutter analyze
 after_success:
   - coveralls-lcov coverage/lcov.info
 cache:
