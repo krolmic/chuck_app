@@ -4,8 +4,8 @@ import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 
-import '../lib/resources/api_provider.dart';
-import '../lib/resources/repository.dart';
+import 'package:chuck/resources/api_provider.dart';
+import 'package:chuck/resources/repository.dart';
 import './mocks.dart';
 
 
@@ -18,15 +18,15 @@ void main() {
       http.Response response = http.Response(
           '{"value": "Aliens have been abducted by Chuck Norris."}', 200);
 
-      when(client.get("https://foo.bar"))
+      when(client.get('https://foo.bar'))
           .thenAnswer((_) => Future<http.Response>.value(response));
-      final ApiJokesProvider provider = ApiJokesProvider("https://foo.bar");
+      final ApiJokesProvider provider = ApiJokesProvider('https://foo.bar');
       provider.client = client;
 
       final JokesRepository repository = JokesRepository();
       repository.providers[0] = provider;
       expect(await repository.fetchRandomJoke(),
-          "Aliens have been abducted by Chuck Norris.");
+          'Aliens have been abducted by Chuck Norris.');
 
       // Invalid response
       response = http.Response('{"foo}', 200);
