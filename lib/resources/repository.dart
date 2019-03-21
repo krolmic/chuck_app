@@ -1,10 +1,10 @@
-import './base_provider.dart';
 import './api_provider.dart';
+import './base_provider.dart';
 import './offline_provider.dart';
 
 class JokesRepository {
   List<JokesProvider> providers = <JokesProvider> [
-    ApiJokesProvider("https://api.chucknorris.io/jokes/random"),
+    ApiJokesProvider('https://api.chucknorris.io/jokes/random'),
     OfflineJokesProvider(),
   ];
 

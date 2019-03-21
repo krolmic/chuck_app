@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../resources/repository.dart';
 
 class JokePage extends StatefulWidget {
-  final JokesRepository jokesRepository;
+  const JokePage(this.jokesRepository, {Key key}) : super(key: key);
 
-  JokePage(this.jokesRepository, {Key key}) : super(key: key);
+  final JokesRepository jokesRepository;
 
   @override
   _JokePageState createState() => _JokePageState();
@@ -13,9 +13,9 @@ class JokePage extends StatefulWidget {
 
 class _JokePageState extends State<JokePage> {
   bool _isLoading = false;
-  String _joke = "Tap on the button to get a Chuck Norris joke.";
+  String _joke = 'Tap on the button to get a Chuck Norris joke.';
 
-  JokesRepository _jokesRepository = JokesRepository();
+  final JokesRepository _jokesRepository = JokesRepository();
 
   void _getJoke() async {
     // Fetch a new joke only if the page is not loading
@@ -24,7 +24,7 @@ class _JokePageState extends State<JokePage> {
         _isLoading = true;
       });
 
-      String joke = await _jokesRepository.fetchRandomJoke();
+      final String joke = await _jokesRepository.fetchRandomJoke();
 
       setState(() {
         _joke = joke;
@@ -35,7 +35,9 @@ class _JokePageState extends State<JokePage> {
 
   Widget _buildContent() {
     return _isLoading
-        ? Center(child: CircularProgressIndicator())
+        ? Center(
+            child: const CircularProgressIndicator(),
+          )
         : Text(
             '$_joke',
             style: Theme.of(context)
@@ -58,17 +60,17 @@ class _JokePageState extends State<JokePage> {
         ),
       ),
       body: ListView(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         children: <Widget>[
           AspectRatio(
             aspectRatio: 1.8,
             child: Image.asset('assets/chuck_norris.png'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           _buildContent(),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
         ],
@@ -76,7 +78,7 @@ class _JokePageState extends State<JokePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _getJoke,
         tooltip: 'Get a Joke',
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }
