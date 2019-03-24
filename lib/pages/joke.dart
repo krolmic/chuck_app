@@ -34,10 +34,12 @@ class _JokePageState extends State<JokePage> {
   }
 
   Future<void> _handleRefresh() async {
-    final String joke = await _jokesRepository.fetchRandomJoke();
-    setState(() {
-      _joke = joke;
-    });
+    if (!_isLoading) {
+      final String joke = await _jokesRepository.fetchRandomJoke();
+      setState(() {
+        _joke = joke;
+      });
+    }
   }
 
   Widget _buildContent() {

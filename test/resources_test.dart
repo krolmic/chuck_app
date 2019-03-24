@@ -8,7 +8,6 @@ import 'package:chuck/resources/api_provider.dart';
 import 'package:chuck/resources/repository.dart';
 import './mocks.dart';
 
-
 void main() {
   group('Resources', () {
     test('Jokes repository test', () async {
