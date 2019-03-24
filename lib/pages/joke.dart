@@ -33,6 +33,13 @@ class _JokePageState extends State<JokePage> {
     }
   }
 
+  Future<void> _handleRefresh() async {
+    final String joke = await _jokesRepository.fetchRandomJoke();
+    setState(() {
+      _joke = joke;
+    });
+  }
+
   Widget _buildContent() {
     return _isLoading
         ? Center(
@@ -59,21 +66,24 @@ class _JokePageState extends State<JokePage> {
           ),
         ),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(15),
-        children: <Widget>[
-          AspectRatio(
-            aspectRatio: 1.8,
-            child: Image.asset('assets/chuck_norris.png'),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          _buildContent(),
-          const SizedBox(
-            height: 50,
-          ),
-        ],
+      body: RefreshIndicator(
+        onRefresh: _handleRefresh,
+        child: ListView(
+          padding: const EdgeInsets.all(15),
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 1.5,
+              child: Image.asset('assets/chuck_norris.png'),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            _buildContent(),
+            const SizedBox(
+              height: 50,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _getJoke,
