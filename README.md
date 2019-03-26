@@ -3,17 +3,13 @@
 [![Build Status](https://travis-ci.com/krolmic/chuck_app.svg?branch=master)](https://travis-ci.com/krolmic/chuck_app)
 [![Coverage Status](https://coveralls.io/repos/github/krolmic/chuck_app/badge.svg?branch=master)](https://coveralls.io/github/krolmic/chuck_app?branch=master)
 
-A new Flutter project.
+A simple app that provides random jokes about Chuck Norris made in Flutter and Dart. 
 
-## Getting Started
+This project has been created for the contest [Flutter Create](https://flutter.dev/create).
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Source of jokes
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+This app is using [Chuck Norris Jokes Api](https://api.chucknorris.io/).
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![https://api.chucknorris.io/](https://assets.chucknorris.host/img/chucknorris_logo_coloured_small.png)
