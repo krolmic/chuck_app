@@ -8,6 +8,15 @@ A simple app that provides random jokes about Chuck Norris made in Flutter and D
 This project has been created for the contest [Flutter Create](https://flutter.dev/create).
 
 
+## Building the project
+
+* Clone this project by executing `git clone https://github.com/krolmic/chuck_app.git`
+* Change the directory by using `cd chuck`
+* Run an Android or iOS emulator
+* Execute `./flutterw run` to start the app
+
+
+
 ## Source of jokes
 
 This app is using [Chuck Norris Jokes Api](https://api.chucknorris.io/).
